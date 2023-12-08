@@ -1,95 +1,255 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+/* eslint-disable @next/next/no-img-element */
+"use client";
+import Image from "next/image";
+import styles from "./page.module.css";
+import CardItem from "@/components/CardItem";
+import CardItemChoose from "@/components/CardItemChoose";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [arrayProduct, setArrayProduct] = useState<CardItem[]>([
+    {
+      id: 1,
+      image:
+        "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1315882/air-zoom-pegasus-36-mens-running-shoe-wide-D24Mcz-removebg-preview.png",
+      name: "Nike Air Zoom Pegasus 36",
+      description:
+        "The iconic Nike Air Zoom Pegasus 36 offers more cooling and mesh that targets breathability across high-heat areas. A slimmer heel collar and tongue reduce bulk, while exposed cables give you a snug fit at higher speeds.",
+      price: 108.97,
+      color: "#e1e7ed",
+      amount: 0,
+      isChoose: false,
+    },
+    {
+      id: 2,
+      image:
+        "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1315882/air-zoom-pegasus-36-shield-mens-running-shoe-24FBGb__1_-removebg-preview.png",
+      name: "Nike Air Zoom Pegasus 36 Shield",
+      description:
+        "The Nike Air Zoom Pegasus 36 Shield gets updated to conquer wet routes. A water-repellent upper combines with an outsole that helps create grip on wet surfaces, letting you run in confidence despite the weather.",
+      price: 89.97,
+      color: "#4D317F",
+      amount: 0,
+      isChoose: false,
+    },
+    {
+      id: 3,
+      image:
+        "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1315882/cruzrone-unisex-shoe-T2rRwS-removebg-preview.png",
+      name: "Nike CruzrOne",
+      description:
+        "Designed for steady, easy-paced movement, the Nike CruzrOne keeps you going. Its rocker-shaped sole and plush, lightweight cushioning let you move naturally and comfortably. The padded collar is lined with soft wool, adding luxury to every step, while mesh details let your foot breathe. There’s no finish line—there’s only you, one step after the next.",
+      price: 100.97,
+      color: "#E8D026",
+      amount: 0,
+      isChoose: false,
+    },
+    {
+      id: 4,
+      image:
+        "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1315882/epic-react-flyknit-2-mens-running-shoe-2S0Cn1-removebg-preview.png",
+      name: "Nike Epic React Flyknit 2",
+      description:
+        "The Nike Epic React Flyknit 2 takes a step up from its predecessor with smooth, lightweight performance and a bold look. An updated Flyknit upper conforms to your foot with a minimal, supportive design. Underfoot, durable Nike React technology defies the odds by being both soft and responsive, for comfort that lasts as long as you can run.",
+      price: 89.97,
+      color: "#FD584A",
+      amount: 0,
+      isChoose: false,
+    },
+    {
+      id: 5,
+      image:
+        "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1315882/odyssey-react-flyknit-2-mens-running-shoe-T3VG7N-removebg-preview.png",
+      name: "Nike Odyssey React Flyknit 2",
+      description:
+        "The Nike Odyssey React Flyknit 2 provides a strategic combination of lightweight Flyknit construction and synthetic material for support. Underfoot, Nike React cushioning delivers a soft, springy ride for a route that begs to be crushed.",
+      price: 71.97,
+      color: "#D4D7D6",
+      amount: 0,
+      isChoose: false,
+    },
+    {
+      id: 6,
+      image:
+        "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1315882/react-infinity-run-flyknit-mens-running-shoe-RQ484B__2_-removebg-preview.png",
+      name: "Nike React Infinity Run Flyknit",
+      description:
+        "A pioneer in the running shoe frontier honors the original pioneer of running culture with the Nike React Infinity Run Flyknit. Blue Ribbon Track Club-inspired details pay homage to the haven that was created before running was even popular. This running shoe is designed to help reduce injury and keep you on the run. More foam and improved upper details provide a secure and cushioned feel.",
+      price: 160.0,
+      color: "#F2F5F4",
+      amount: 0,
+      isChoose: false,
+    },
+    {
+      id: 7,
+      image:
+        "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1315882/react-miler-mens-running-shoe-DgF6nr-removebg-preview.png",
+      name: "Nike React Miler",
+      description:
+        "The Nike React Miler gives you trusted stability for miles with athlete-informed performance. Made for dependability on your long runs, its intuitive design offers a locked-in fit and a durable feel.",
+      price: 130.0,
+      color: "#22AFDC",
+      amount: 0,
+      isChoose: false,
+    },
+    {
+      id: 8,
+      image:
+        "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1315882/renew-ride-mens-running-shoe-JkhdfR-removebg-preview.png",
+      name: "Nike Renew Ride",
+      description:
+        "The Nike Renew Ride helps keep the committed runner moving with plush cushioning. Firm support at the outsole helps you maintain stability no matter the distance.",
+      price: 60.97,
+      color: "#B50320",
+      amount: 0,
+      isChoose: false,
+    },
+    {
+      id: 9,
+      image:
+        "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1315882/vaporfly-4-flyknit-running-shoe-v7G3FB-removebg-preview.png",
+      name: "Nike Vaporfly 4% Flyknit",
+      description:
+        "Built to meet the exacting needs of world-class marathoners, Nike Vaporfly 4% Flyknit is designed for record-breaking speed. The Flyknit upper delivers breathable support, while the responsive foam and full-length plate provide incredible energy return for all 26.2.",
+      price: 187.97,
+      color: "#3569A1",
+      amount: 0,
+      isChoose: false,
+    },
+    {
+      id: 10,
+      image:
+        "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1315882/zoom-fly-3-premium-mens-running-shoe-XhzpPH-removebg-preview.png",
+      name: "Nike Zoom Fly 3 Premium",
+      description:
+        "Inspired by the Vaporfly, the Nike Zoom Fly 3 Premium gives distance runners race-day comfort and durability. The power of a carbon fiber plate keeps you in the running mile after mile.",
+      price: 160.0,
+      color: "#54D4C9",
+      amount: 0,
+      isChoose: false,
+    },
+  ]);
+
+  const [totalPrice, setTotalPrice] = useState<number>(0.0);
+  const handleChooseClick = (cardItemId: number) => {
+    console.log(1);
+    const cardItemArray = arrayProduct.map((item) => {
+      if (item.id === cardItemId) {
+        item.isChoose = true;
+        item.amount++;
+      }
+      return item;
+    });
+    setArrayProduct(cardItemArray);
+  };
+  const handleDeclineClick = (cardItemId: number) => {
+    console.log(-1);
+    const cardItemArray = arrayProduct.map((item) => {
+      if (item.id === cardItemId) {
+        item.isChoose = false;
+        item.amount = 0;
+      }
+      return item;
+    });
+    setArrayProduct(cardItemArray);
+  };
+  // when click button + , the amount of shoes will go up:
+  const handleAddOne = (id: number) => {
+    let totalPrice1 = totalPrice;
+    arrayProduct.map((item) => {
+      if (item.id === id) {
+        item.amount++;
+      }
+      if (item.isChoose) {
+        totalPrice1 = Number(
+          (totalPrice1 += item.price * item.amount).toFixed(2)
+        );
+      }
+    });
+    setTotalPrice(totalPrice1);
+  };
+  const handlRemoveOne = (id: number) => {
+    let totalPrice1 = totalPrice;
+    arrayProduct.map((item) => {
+      if (item.id === id) {
+        item.amount--;
+      }
+      if (item.isChoose) {
+        totalPrice1 = Number(
+          (totalPrice1 += item.price * item.amount).toFixed(2)
+        );
+      }
+    });
+    setTotalPrice(totalPrice1);
+  };
+  useEffect(() => {
+    let totalPrice1 = 0;
+    arrayProduct.map((item) => {
+      if (item.isChoose) {
+        totalPrice1 = Number(
+          (totalPrice1 += item.price * item.amount).toFixed(2)
+        );
+      }
+    });
+    setTotalPrice(totalPrice1);
+    console.log(totalPrice1);
+  }, [totalPrice, arrayProduct]);
   return (
     <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
+      <div className={styles.appCard1}>
+        <div className={styles.cardTop}>
+          <Image
+            src="/images/nike.png"
+            alt="logo"
+            width={50}
+            height={26}
+            className="logo"
+          />
+        </div>
+        <div className={styles.cardTitle}>Our Products</div>
+        <div className={styles.cardBody}>
+          {arrayProduct.map((item, index) => (
+            <CardItem
+              key={index}
+              arrayProduct={item}
+              handleChooseClick={() => handleChooseClick(item.id)}
             />
-          </a>
+          ))}
         </div>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      <div className={styles.appCard1}>
+        <div className={styles.cardTop}>
+          <Image
+            src="/images/nike.png"
+            alt="logo"
+            width={50}
+            height={26}
+            className="logo"
+          />
+        </div>
+        <div className={styles.cardTitle}>
+          Your Cart <span className={styles.spanText}>${totalPrice}</span>
+        </div>
+        <div className={styles.cardBody}>
+          {totalPrice === 0 && (
+            <div className={styles.carDiv}>
+              <p className={styles.cardNone}>Your cart is empty.</p>
+            </div>
+          )}
+          {arrayProduct.map(
+            (item, index) =>
+              item.isChoose && (
+                <CardItemChoose
+                  key={index}
+                  arrayProduct={item}
+                  handleDeclineClick={() => handleDeclineClick(item.id)}
+                  handleAddOne={() => handleAddOne(item.id)}
+                  handlRemoveOne={() => handlRemoveOne(item.id)}
+                />
+              )
+          )}
+        </div>
       </div>
     </main>
-  )
+  );
 }

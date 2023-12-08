@@ -1,0 +1,232 @@
+.cardTop {
+    position: relative;
+    margin: 12px 0;
+}
+
+.logo {
+    display: block;
+}
+
+.cardTitle {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 16px 0;
+    position: relative;
+
+}
+
+.cardBody {
+    height: calc(100% - 98px);
+    position: relative;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.cardBody::-webkit-scrollbar {
+    display: none;
+}
+
+.cardBodyChild:first-child {
+    padding-top: 0;
+}
+
+.cardBodyChild {
+    padding: 40px 0;
+}
+
+.cardImage {
+    background-color: rgb(225, 231, 237);
+    border-radius: 30px;
+    height: 380px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.cardImage img {
+    width: 100%;
+    display: block;
+    filter: drop-shadow(0 30px 20px rgba(0, 0, 0, .2));
+    transform: rotate(-24deg);
+}
+
+.cardName {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 26px 0 20px;
+    line-height: 1.5;
+}
+
+.cardDescription {
+    font-size: 13px;
+    color: #777;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.cardItemBottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cardItemPrice {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.cardItemButton {
+    cursor: pointer;
+    background-color: #f6c90e;
+    font-weight: 700;
+    font-size: 14px;
+    box-sizing: border-box;
+    width: auto;
+    height: 46px;
+    min-width: 46px;
+    padding: 16px 20px;
+    border-radius: 100px;
+    transition: all 0.25s ease;
+    user-select: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.cardItemButton:hover {
+    background-color: #f8d43f;
+    box-shadow: -2px 2px 4px rgba(0, 0, 0, .15);
+}
+
+/* use to active */
+.cardActive {
+    width: 46px;
+    pointer-events: none;
+    cursor: default;
+}
+
+.cardButtonCover {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkIcon {
+    position: absolute;
+    left: -50%;
+}
+
+.spanText {
+    float: right;
+}
+
+.cardDiv {
+    position: absolute;
+}
+
+.cardNone {
+    font-size: 14px;
+}
+
+.cardChoose {
+    display: flex;
+    padding: 20px 0;
+}
+
+.cardItemChooseLeft {
+    flex: 0;
+}
+
+.cardItemChooseRight {
+    flex: 1;
+}
+
+.cardItemChooseImage {
+    background-color: rgb(225, 231, 237);
+    width: 90px;
+    height: 90px;
+    border-radius: 100%;
+    margin-right: 30px;
+}
+
+.cardItemChooseImageInside img {
+    display: block;
+    width: 140%;
+    transform: rotate(-28deg) translateY(-40px);
+    filter: drop-shadow(0 30px 20px rgba(0, 0, 0, .2));
+}
+
+.itemName {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.itemPrice {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.itemAction {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.itemCount {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.itemCountButton {
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    border-radius: 100%;
+    background-color: #eee;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .2s;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.itemCountNumber {
+    font-size: 14px;
+    margin: 0 8px;
+    width: 20px;
+    text-align: center;
+}
+
+.itemRemove {
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    transition: all .25s ease;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f6c90e;
+    transition: .2s;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

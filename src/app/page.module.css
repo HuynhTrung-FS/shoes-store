@@ -1,10 +1,299 @@
 .main {
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 6rem;
-  min-height: 100vh;
+  height: 100vh;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.main::before {
+  content: "";
+  display: block;
+  position: fixed;
+  width: 300%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  border-radius: 100%;
+  background-color: #f6c90e;
+  transform: translateX(-50%) skewY(-8deg);
+  z-index: -1;
+  animation: animation-main 8s ease-in-out infinite alternate;
+  -webkit-animation: animation-main 8s ease-in-out infinite alternate;
+}
+
+@keyframes animation-main {
+  0% {
+    transform: translateX(-50%) skew(0deg, -8deg);
+  }
+
+  100% {
+    transform: translateX(-30%) skew(8deg, -4deg);
+  }
+}
+
+.appCard1 {
+  width: 360px;
+  height: 600px;
+  box-shadow: 0 3.2px 2.2px rgba(0, 0, 0, .02),
+    0 7px 5.4px rgba(0, 0, 0, .028),
+    0 12.1px 10.1px rgba(0, 0, 0, .035),
+    0 19.8px 18.1px rgba(0, 0, 0, .042),
+    0 34.7px 33.8px rgba(0, 0, 0, .05),
+    0 81px 81px rgba(0, 0, 0, .07);
+  border-radius: 30px;
+  padding: 0 28px;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+  background-color: white;
+}
+
+.appCard1::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 100%;
+  background-color: #f6c90e;
+  top: -20%;
+  left: -50%;
+  z-index: 0;
+}
+
+.cardTop {
+  position: relative;
+  margin: 12px 0;
+}
+
+.logo {
+  display: block;
+}
+
+.cardTitle {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 16px 0;
+  position: relative;
+
+}
+
+.cardBody {
+  height: calc(100% - 98px);
+  position: relative;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.cardBody::-webkit-scrollbar {
+  display: none;
+}
+
+.cardBodyChild:first-child {
+  padding-top: 0;
+}
+
+.cardBodyChild {
+  padding: 40px 0;
+}
+
+.cardImage {
+  background-color: rgb(225, 231, 237);
+  border-radius: 30px;
+  height: 380px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.cardImage img {
+  width: 100%;
+  display: block;
+  filter: drop-shadow(0 30px 20px rgba(0, 0, 0, .2));
+  transform: rotate(-24deg);
+}
+
+.cardName {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 26px 0 20px;
+  line-height: 1.5;
+}
+
+.cardDescription {
+  font-size: 13px;
+  color: #777;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.cardItemBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cardItemPrice {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.cardItemButton {
+  cursor: pointer;
+  background-color: #f6c90e;
+  font-weight: 700;
+  font-size: 14px;
+  box-sizing: border-box;
+  width: auto;
+  height: 46px;
+  min-width: 46px;
+  padding: 16px 20px;
+  border-radius: 100px;
+  transition: all 0.25s ease;
+  user-select: none;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.cardItemButton:hover {
+  background-color: #f8d43f;
+  box-shadow: -2px 2px 4px rgba(0, 0, 0, .15);
+}
+
+/* use to active */
+.cardActive {
+  width: 46px;
+  pointer-events: none;
+  cursor: default;
+}
+
+.cardButtonCover {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkIcon {
+  position: absolute;
+  left: -50%;
+}
+
+.spanText {
+  float: right;
+}
+
+.cardDiv {
+  position: absolute;
+}
+
+.cardNone {
+  font-size: 14px;
+}
+
+.cardChoose {
+  display: flex;
+  padding: 20px 0;
+}
+
+.cardItemChooseLeft {
+  flex: 0;
+}
+
+.cardItemChooseRight {
+  flex: 1;
+}
+
+.cardItemChooseImage {
+  background-color: rgb(225, 231, 237);
+  width: 90px;
+  height: 90px;
+  border-radius: 100%;
+  margin-right: 30px;
+}
+
+.cardItemChooseImageInside img {
+  display: block;
+  width: 140%;
+  transform: rotate(-28deg) translateY(-40px);
+  filter: drop-shadow(0 30px 20px rgba(0, 0, 0, .2));
+}
+
+.itemName {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.itemPrice {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.itemAction {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.itemCount {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.itemCountButton {
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  border-radius: 100%;
+  background-color: #eee;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .2s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.itemCountNumber {
+  font-size: 14px;
+  margin: 0 8px;
+  width: 20px;
+  text-align: center;
+}
+
+.itemRemove {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  transition: all .25s ease;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f6c90e;
+  transition: .2s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .description {
@@ -107,6 +396,7 @@
 .logo {
   position: relative;
 }
+
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
@@ -178,11 +468,9 @@
     border-radius: 0;
     border: none;
     border-bottom: 1px solid rgba(var(--callout-border-rgb), 0.25);
-    background: linear-gradient(
-      to bottom,
-      rgba(var(--background-start-rgb), 1),
-      rgba(var(--callout-rgb), 0.5)
-    );
+    background: linear-gradient(to bottom,
+        rgba(var(--background-start-rgb), 1),
+        rgba(var(--callout-rgb), 0.5));
     background-clip: padding-box;
     backdrop-filter: blur(24px);
   }
@@ -193,11 +481,9 @@
     inset: auto 0 0;
     padding: 2rem;
     height: 200px;
-    background: linear-gradient(
-      to bottom,
-      transparent 0%,
-      rgb(var(--background-end-rgb)) 40%
-    );
+    background: linear-gradient(to bottom,
+        transparent 0%,
+        rgb(var(--background-end-rgb)) 40%);
     z-index: 1;
   }
 }
@@ -223,6 +509,7 @@
   from {
     transform: rotate(360deg);
   }
+
   to {
     transform: rotate(0deg);
   }
